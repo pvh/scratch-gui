@@ -1,4 +1,7 @@
-import VM from 'scratch-vm';
+import VMpromise from 'scratch-vm';
+const VM = (await VMpromise).default;
+console.log(VM)
+
 import storage from '../lib/storage';
 
 const SET_VM = 'scratch-gui/vm/SET_VM';

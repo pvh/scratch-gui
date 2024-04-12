@@ -219,7 +219,7 @@ export default function (vm, useCatBlocks) {
 
         // Get the sensing_of block from vm.
         let defaultSensingOfBlock;
-        const blocks = vm.runtime.flyoutBlocks._blocks;
+        const blocks = vm.runtime.flyoutBlocks.getBlocks();
         Object.keys(blocks).forEach(id => {
             const block = blocks[id];
             if (id === blockType || (block && block.opcode === blockType)) {
@@ -319,7 +319,7 @@ export default function (vm, useCatBlocks) {
     };
 
     ScratchBlocks.VerticalFlyout.getCheckboxState = function (blockId) {
-        const monitoredBlock = vm.runtime.monitorBlocks._blocks[blockId];
+        const monitoredBlock = vm.runtime.monitorBlocks.getBlock(blockId);
         return monitoredBlock ? monitoredBlock.isMonitored : false;
     };
 

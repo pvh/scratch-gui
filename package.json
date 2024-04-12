@@ -37,6 +37,8 @@
     }
   },
   "dependencies": {
+    "@automerge/automerge-repo": "^1.1.5",
+    "@automerge/automerge-repo-network-broadcastchannel": "^1.1.5",
     "@microbit/microbit-universal-hex": "^0.2.2",
     "arraybuffer-loader": "^1.0.6",
     "autoprefixer": "^9.0.1",

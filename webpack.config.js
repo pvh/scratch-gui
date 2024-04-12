@@ -17,7 +17,7 @@ const ScratchWebpackConfigBuilder = require('scratch-webpack-configuration');
 const baseConfig = new ScratchWebpackConfigBuilder(
     {
         rootPath: path.resolve(__dirname),
-        enableReact: true
+        enableReact: true,
     })
     .setTarget('browserslist')
     .merge({
@@ -40,6 +40,9 @@ const baseConfig = new ScratchWebpackConfigBuilder(
             },
             mergeDuplicateChunks: true,
             runtimeChunk: 'single'
+        },
+        experiments: {
+            asyncWebAssembly: true
         }
     })
     .addModuleRule({

@@ -10,6 +10,7 @@ import ReactDOM from 'react-dom';
 import AppStateHOC from '../lib/app-state-hoc.jsx';
 import BrowserModalComponent from '../components/browser-modal/browser-modal.jsx';
 import supportedBrowser from '../lib/supported-browser';
+import renderGui from './render-gui.jsx';
 
 import styles from './index.css';
 
@@ -20,12 +21,12 @@ document.body.appendChild(appTarget);
 if (supportedBrowser()) {
     // require needed here to avoid importing unsupported browser-crashing code
     // at the top level
-    require('./render-gui.jsx').default(appTarget);
+    renderGui(appTarget);
 
 } else {
     BrowserModalComponent.setAppElement(appTarget);
     const WrappedBrowserModalComponent = AppStateHOC(BrowserModalComponent, true /* localesOnly */);
-    const handleBack = () => {};
+    const handleBack = () => { };
     // eslint-disable-next-line react/jsx-no-bind
     ReactDOM.render(<WrappedBrowserModalComponent onBack={handleBack} />, appTarget);
 }
